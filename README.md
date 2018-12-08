@@ -9,6 +9,9 @@ cassandra-stress user profile=/root/stress.yaml n=100000 ops\(insert=1\) -graph 
 https://www.datastax.com/dev/blog/improved-cassandra-2-1-stress-tool-benchmark-any-schema
 https://docs.datastax.com/en/cassandra/3.0/cassandra/tools/toolsCStress.html
 
+# How Stress Tests Works :
+https://www.instaclustr.com/deep-diving-cassandra-stress-part-3-using-yaml-profiles/
+
 # Write Tests :
 Start the Cassandra node using the write_survey option:
 
