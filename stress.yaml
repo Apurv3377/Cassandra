@@ -1,0 +1,40 @@
+keyspace: perftesting
+
+keyspace_definition: |
+
+  CREATE KEYSPACE perftesting WITH replication = { 'class':'SimpleStrategy','replication_factor': 1};
+  
+table: cassandra_test3
+
+table_definition: |
+    CREATE TABLE perftesting.cassandra_test3 (
+    log_id text,
+    vmid text,
+    dtb text,
+    logtype text,
+    pid int,
+    rip text,
+    rsp text,
+    syscall_name text,
+    syscall_nr text,
+    value int,
+    PRIMARY KEY (log_id, vmid)
+    )WITH CLUSTERING ORDER BY (vmid ASC)
+    AND compaction= {'class': 'org.apache.cassandra.db.compaction.TimeWindowCompactionStrategy', 'compaction_window_size': '1', 'compaction_window_unit': 'MINUTES', 'max_threshold': '32', 'min_threshold': '4'}
+    AND compression = {'chunk_length_in_kb': '4', 'class': 'org.apache.cassandra.io.compress.LZ4Compressor'}
+    AND crc_check_chance = 0.0
+    AND bloom_filter_fp_chance = 0.01
+    AND speculative_retry = 'NONE';
+
+insert:
+  partitions: fixed(1)
+  batchtype: UNLOGGED
+  
+queries:
+  read1:
+    cql: select * from cassandra_test3 where vmid = ? ALLOW FILTERING
+    fields: samerow
+
+
+  
+  
