@@ -1,15 +1,15 @@
 # Cassandra
 Performance Tests
 
-For Executing Stress Tests :
+# For Executing Stress Tests :
 
 cassandra-stress user profile=/root/stress.yaml n=100000 ops\(insert=1\) -graph file=test.html title=test revision=test1
 
-References :
+# References :
 https://www.datastax.com/dev/blog/improved-cassandra-2-1-stress-tool-benchmark-any-schema
 https://docs.datastax.com/en/cassandra/3.0/cassandra/tools/toolsCStress.html
 
-Write Tests :
+# Write Tests :
 Start the Cassandra node using the write_survey option:
 
     Cassandra package installations: Add the following option to cassandra-env.sh file:
@@ -21,11 +21,11 @@ Start the Cassandra node using the write_survey option:
     cd install_location
     $ sudo bin/dse cassandra -Dcassandra.write_survey=true #Starts DataStax Enterprise
 
-Ref :
+# Ref :
 https://docs.datastax.com/en/cassandra/3.0/cassandra/operations/opsTestCompactCompress.html
 
 
-Additonal Optimisations :
+# Additonal Optimisations Queries:
 Optimizations :
 
 
