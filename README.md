@@ -1,7 +1,7 @@
 # Cassandra
 Performance Tests
 
-# For Executing Stress Tests :
+# For Executing Stress Tests (only write on base data - stess.yaml) :
 
 cassandra-stress user profile=/root/stress.yaml n=100000 ops\(insert=1\) -graph file=test.html title=test revision=test1
 
@@ -9,7 +9,7 @@ cassandra-stress user profile=/root/stress.yaml n=100000 ops\(insert=1\) -graph 
 https://www.datastax.com/dev/blog/improved-cassandra-2-1-stress-tool-benchmark-any-schema
 https://docs.datastax.com/en/cassandra/3.0/cassandra/tools/toolsCStress.html
 
-# How Stress Tests Works :
+# How Stress Tests Works (Read and Write working stress2.yaml) :
 https://www.instaclustr.com/deep-diving-cassandra-stress-part-3-using-yaml-profiles/
 
 # Write Tests :
