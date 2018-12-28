@@ -2,8 +2,11 @@
 Performance Tests
 
 # For Executing Stress Tests (only write on base data - stess.yaml) :
+./cassandra-stress user profile=/root/stress.yaml n=150000 ops\(insert=1\) -rate threads=1 -graph file=test_write.html title=Perf_Write revision=Write1 -log file=write_$NOW.log
 
-cassandra-stress user profile=/root/stress.yaml n=100000 ops\(insert=1\) -graph file=test.html title=test revision=test1
+./cassandra-stress user profile=/root/stress2.yaml n=150000 ops\(pull-for-rollup=1\) -rate threads=1 -graph file=test_read.html title=Perf_Read revision=Read1 -log file=read_$NOW.log
+
+
 
 # References :
 https://www.datastax.com/dev/blog/improved-cassandra-2-1-stress-tool-benchmark-any-schema
